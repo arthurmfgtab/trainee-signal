@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ToDoSignal </title>
+    <link rel="stylesheet" href="./../css/style.css">
+    <script src="./../js/script.js"></script>
+</head>
+<body>
+    
+    <input id="myInput" type="text" onkeyup="pesquisarTarefa()" placeholder="Pesquisar por nome...">
+    <button class="botao"> Adicionar Nova Tarefa </button>
+
+    <div class="container">
+
+        <div class="sidenav">
+            <a href="#"> Início </a>
+            <a target="_blank" href="https://www.facebook.com/Signal.Jr.ufrrj/"> Facebook Signal </a>
+            <a target="_blank" href="https://www.signaljunior.com.br/"> Site Signal </a>
+        </div>
+
+        
+        <div class="main">
+            
+            <div class="todo">                
+                <table id="myTable">
+                    <tr class="header">
+                        <th style="width:60%;"> Tarefa </th>
+                        <th style="width:40%;"> Status </th>
+                    </tr>
+                    <tr>
+                        <td> Prova de Cálculo (15/10) </td>
+                        <td> 
+                            <input type="radio" name="status1"> A Fazer <br>
+                            <input type="radio" name="status1"> Fazendo <br>
+                            <input type="radio" name="status1"> Feito
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Terminar treinamento da Signal Jr </td>
+                        <td>
+                            <input type="radio" name="status2"> A Fazer <br>
+                            <input type="radio" name="status2"> Fazendo <br>
+                            <input type="radio" name="status2"> Feito
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Lavar roupa </td>
+                        <td>
+                            <input type="radio" name="status3"> A Fazer <br>
+                            <input type="radio" name="status3"> Fazendo <br>
+                            <input type="radio" name="status3"> Feito
+                        </td>
+                    </tr>
+                </table> 
+            </div>
+        </div> 
+                
+        <div class="footer">
+            <p> Feito com amor por <strong> Signal Jr </strong> </p>
+        </div> 
+
+    </div>
+    
+</body>
+</html>
