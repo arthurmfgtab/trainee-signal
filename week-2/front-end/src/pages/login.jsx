@@ -83,6 +83,7 @@ export default class Login extends React.Component {
                 console.log(resposta.data.mensagemErro)
             } else {
                 alert('Usuário cadastrado com sucesso!')
+                console.log('Usuário cadastrado com sucesso!')
                 this.toggleModalCadastrar()
                 this.zerarStateUsuario()
             }
@@ -104,6 +105,7 @@ export default class Login extends React.Component {
      * 
      */
     toggleModalCadastrar = () => {
+        this.zerarStateUsuario()
         this.setState(prevState => ({ modalEstaAberto: !prevState.modalEstaAberto }))
     }
 
@@ -179,27 +181,27 @@ export default class Login extends React.Component {
                         <FormGroup row>
                             <Label sm={2}> <strong> Nome </strong> </Label>
                             <Col sm={10}>
-                                <Input type="text" onChange={ this.atualizarCampo } name="nome" />
+                                <Input type="text" onChange={ this.atualizarCampo } name="nome" placeholder="ex: Arthur" />
                             </Col>
                         </FormGroup>
                         
                         <FormGroup row>
                             <Label sm={2}> <strong> Email </strong> </Label>
                             <Col sm={10}>
-                                <Input type="email" onChange={ this.atualizarCampo } name="email" />
+                                <Input type="email" onChange={ this.atualizarCampo } name="email" placeholder="ex: arthurmfg@gmail.com" />
                             </Col>
                         </FormGroup>
 
                         <FormGroup row>
                             <Label sm={2}> <strong> Senha </strong> </Label>
                             <Col sm={10}>
-                                <Input type="password" onChange={ this.atualizarCampo } name="senha" />
+                                <Input type="password" onChange={ this.atualizarCampo } name="senha" placeholder="ex: @$11Ssrural" />
                             </Col>
                         </FormGroup>
 
                         <ModalFooter>
-                            <Button color="primary" onClick={this.toggle}> Cadastrar </Button>{' '}
-                            <Button color="secondary" onClick={this.toggleModalCadastrar}> Cancelar </Button>
+                            <Button color="success" onClick={this.toggle}> Cadastrar </Button>{' '}
+                            <Button outline color="success" onClick={this.toggleModalCadastrar}> Cancelar </Button>
                         </ModalFooter>
                     
                     </Form>
@@ -222,7 +224,7 @@ export default class Login extends React.Component {
                 alignItems:'center',
                 height: '100vh' }}>
                 
-                <div style={{ borderRadius: 15, padding: 50, marginTop: -200 }}>
+                <div style={{ borderRadius: 15, padding: 50, marginTop: -100 }}>
                     <img alt="avatar" src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Round&hairColor=BrownDark&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Gray01&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'/>
                     <br/>
                     <hr/>

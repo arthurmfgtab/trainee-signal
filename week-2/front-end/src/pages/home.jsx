@@ -265,21 +265,33 @@ export default class Home extends React.Component {
                         <FormGroup row>
                             <Label sm={2}> <strong> Nome </strong> </Label>
                             <Col sm={10}>
-                                <Input type="text" onChange={ this.atualizarCampo } name="nome" />
+                                <Input 
+                                    type="text" 
+                                    onChange={ this.atualizarCampo } 
+                                    name="nome" 
+                                    placeholder="ex: Arthur" />
                             </Col>
                         </FormGroup>
                         
                         <FormGroup row>
                             <Label sm={2}> <strong> Email </strong> </Label>
                             <Col sm={10}>
-                                <Input type="email" onChange={ this.atualizarCampo } name="email" />
+                                <Input 
+                                    type="email" 
+                                    onChange={ this.atualizarCampo } 
+                                    name="email" 
+                                    placeholder="ex: arthurmfg@gmail.com" />
                             </Col>
                         </FormGroup>
 
                         <FormGroup row>
                             <Label sm={2}> <strong> Senha </strong> </Label>
                             <Col sm={10}>
-                                <Input type="password" onChange={ this.atualizarCampo } name="senha" />
+                                <Input 
+                                    type="password" 
+                                    onChange={ this.atualizarCampo } 
+                                    name="senha" 
+                                    placeholder="ex: #010101rural" />
                             </Col>
                         </FormGroup>
 
