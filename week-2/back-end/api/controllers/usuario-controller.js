@@ -64,6 +64,7 @@ exports.cadastrar = async (req, res) => {
 
 }
 
+
 exports.logar = async (req, res) => {
 
     const { email, senha } = req.body
@@ -122,10 +123,22 @@ exports.logar = async (req, res) => {
 
 }
 
+
 exports.editar = async (req, res) => {
 
     const { nome, email } = req.body
     const { _id } = req.params
+
+    if (nome === '' || nome === null || nome === undefined) {
+        console.log('O campo nome é obrigatório!')
+        return res.json({ erro: true, mensagemErro: 'O campo nome é obrigatório!' })
+    }
+
+    if (email === '' || email === null || email === undefined) {
+        console.log('O campo email é obrigatório!')
+        return res.json({ erro: true, mensagemErro: 'O campo email é obrigatório!' })
+    }
+
 
     try {
         
@@ -145,6 +158,7 @@ exports.editar = async (req, res) => {
         return res.json({ erro: true, mensagemErro })
     }
 }
+
 
 exports.excluir = async (req, res) => {
     

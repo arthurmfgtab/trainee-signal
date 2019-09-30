@@ -1,6 +1,8 @@
-import React from 'react'
-import Routes from './routes'
+import React from 'react' // Módulo principal do React.
+import Routes from './routes' // Arquivo 'routes' contendo nossas rotas.
 
-const App = () => <Routes/>
+// Constante que salva a arrow function que apenas aciona as rotas.
+const App = () => <Routes/> 
 
-export default App;
+// Exporta o módulo para que o mesmo possa ser importado por outros arquivos.
+export default App
