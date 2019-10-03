@@ -1,10 +1,9 @@
 import React from 'react' // Módulo principal do React.
 // Esses submódulos serão utilizados no roteamento dos componentes.
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom"
-import Home from "./pages/home.jsx" // Nossa página/componente 'Home' vindo da pasta 'pages'.
-import Login from "./pages/login.jsx" // Nossa página/componente 'Login' vindo da pasta 'pages'.
+import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom'
+import Home from './pages/home' // Nossa página/componente 'Home' vindo da pasta 'pages'.
+import Login from './pages/login' // Nossa página/componente 'Login' vindo da pasta 'pages'.
 import { estaAutenticado } from './services/auth' // Nossa função de verificação de autenticidade.
-import 'bootstrap/dist/css/bootstrap.min.css' // Bootstrap para estilização.
 
 /**
  * Bom, essa função modifica um pouco nosso componente nativo 'Route'. 
@@ -13,8 +12,8 @@ import 'bootstrap/dist/css/bootstrap.min.css' // Bootstrap para estilização.
  * apenas renderizar o componente caso a resposta da nossa função 'estaAutenticado' 
  * seja 'true', isto é, seja positiva. 
  */
-const PrivateRoute = ({ component: Component }) => ( // Renomeia 'component' para 'Component'
-    <Route
+const PrivateRoute = ({ component: Component }) => (
+    <Route 
         render={props => ( // Recebe as propriedades passadas no render por quem chamou.
             /**
              * As 3 linhas abaixo fazem parte de um modo diferente de declarar uma condição.
@@ -26,9 +25,9 @@ const PrivateRoute = ({ component: Component }) => ( // Renomeia 'component' par
              * Então renderizamos o componente caso o usuário esteja autenticado ou redirecionamos
              * ele para a página de login caso não esteja.
              */
-            estaAutenticado() // Retorna 'true' se o usuário estiver logado.
-                ? <Component {...props}/> // 
-                : <Redirect to={{ pathname: '/', state: { from: props.location } }}/>
+            estaAutenticado()
+                ? <Component {...props} />
+                : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
         )}
     />
 )
@@ -41,7 +40,7 @@ const Routes = () => (
         <Switch>
             <Route exact path='/' component={ Login } />
             <PrivateRoute path='/home' component={ Home } />
-            <Route path='*' component={ () => <h3> Page not found! </h3> } />
+            <Route path='*' component={ () => <h1> Page not found! </h1> } />
         </Switch>
     </BrowserRouter>
 )

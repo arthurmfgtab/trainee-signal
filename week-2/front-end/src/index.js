@@ -1,6 +1,7 @@
 import React from 'react' // Módulo principal do React.
 import ReactDOM from 'react-dom' // Módulo de manipulação dos elementos DOM.
 import App from './App' // Arquivo App.js contendo apenas as rotas.
+import 'bootstrap/dist/css/bootstrap.min.css' // Bootstrap para estilização.
 
 /**
  * O React basicamente roda inteiramente em cima de uma div. Essa div está no index.html
@@ -10,3 +11,4 @@ import App from './App' // Arquivo App.js contendo apenas as rotas.
  * com cada rota, é muito legal.
  */
 ReactDOM.render(<App />, document.getElementById('root'))
+

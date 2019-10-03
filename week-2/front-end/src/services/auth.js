@@ -12,16 +12,14 @@
 /* Verifica se existe um token válido. Se existir essa função retorna o valor 'true',
  * se não retorna o valor 'false'.
  */
-export const estaAutenticado = () => localStorage.getItem('TOKEN') !== null 
-
+export const estaAutenticado = () => localStorage.getItem('TOKEN') !== null
 
 // Essa função retorna o token, caso o mesmo exista, para quem a chamou.
 export const pegarToken = () => localStorage.getItem('TOKEN')
 
-
 // Essa função recebe um token como parâmetro e coloca ele dentro da constante 'TOKEN'.
 export const login = (token) => localStorage.setItem('TOKEN', token)
 
-
 // Essa aqui retira nossa constante 'TOKEN' do local storage, deslogando, assim, o usuário.
 export const logout = () => localStorage.removeItem('TOKEN')
+
