@@ -26,6 +26,7 @@
     - Insomnia
 
     FRONT-END
+    - HTML, CSS e JavaScript
     - Boostrap
     - ReactJS
     - Autenticação via Token
