@@ -7,10 +7,21 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink,
 } from 'reactstrap'
 
 
+// Classe exportada de maneira padrão.
 export default class Login extends React.Component {
 
     /**
+     * O construtor é a primeira coisa que é executada quando uma 
+     * classe é instanciada/chamada. Essa função inclusive nos 
+     * possibilita receber propriedades passadas por quem chamou 
+     * este componente. 
      * 
+     * Porém o que realmente importa pra gente aqui nesse contexto 
+     * são os states. States basicamente são estados dinâmicos que 
+     * vão dinamizar algumas informações que são renderizadas. 
+     * Nomes, registros de tabela, várias coisas podem mudar de acordo 
+     * com interações com usuários, essas coisas são estados. 
+     * Pense nos states como variáveis que tornam nossa aplicação dinâmica.
      */
     constructor(props) {
         super(props)
@@ -30,7 +41,16 @@ export default class Login extends React.Component {
 
 
     /**
+     * Função chamada quando o botão 'Logar' for clicado. 
+     * Basicamente pega-se o objeto/state 'usuario' e utilizando
+     * ele enviamos no requisição à API.
      * 
+     * Se houver um erro (lembrando que tanto a variável booleada 'erro' quanto a 
+     * mensagem 'mensagemErro' são variáveis que nossa API está 
+     * enviando, os nomes devem ser estes) imprime esse erro, se não chama-se 
+     * a função 'login' importada fo arquivo '/services/auth' passando o token 
+     * retornado da API. Após isso zera-se o state e redirecionados o usuário 
+     * para a home que é nossa única página sem ser o login.
      */
     logar = async (event) => {
         event.preventDefault()
@@ -55,7 +75,14 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Função chamada quando o formulário de cadastro for enviado. 
+     * Fazemos a requisição para a API enviando o objeto usuário, 
+     * objeto este que é o state 'usuario' e foi preenchido pela 
+     * função 'atualizarCampo'. Caso haja um erro imprime-se esse 
+     * erro (lembrando que tanto a variável booleada 'erro' quanto a 
+     * mensagem 'mensagemErro' são variáveis que nossa API está 
+     * enviando, os nomes devem ser estes), se não fecha-se o modal 
+     * e zera-se os valores contidos no objeto/state 'usuario'. 
      */
     cadastrar = async (event) => {
         event.preventDefault()
@@ -82,7 +109,8 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Faz com que todos os atributos do objeto/state usuário sejam 
+     * strings vazias.
      */
     zerarStateUsuario = () => {
         const usuario = {
@@ -96,7 +124,10 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Abre ou fecha o modal. Basicamente coloca-se no state modal (state esse 
+     * responsável por dizer se o modal está aberto ou fechado) o contrário do 
+     * valor atual, ou seja, se essa state for true no momento, ela vai pra false,
+     * e vice versa.
      */
     toggleModal = () => {
         this.zerarStateUsuario()
@@ -105,7 +136,13 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Essa função é chamada sempre que o usuário digitar algo nos campos 
+     * do formulário de login ou do formulário de cadastro.
+     * Basicamente colocamos no campo correto do objeto usuário o valor digitado. 
+     * Sabemos qual atributo/campo preencher com determinado valor porque tanto 
+     * esse campo quanto o valor são determinado e passados pelo 'event' que a 
+     * função que chama o atualizarCampo manda, o famoso 'onChange' contido nos
+     * inputs dos formulários.
      */
     atualizarCampo = (event) => {
         const { usuario } = this.state
@@ -115,7 +152,7 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Navbar feito com Reactstrap.
      */
     renderNavbar = () => {
         return (
@@ -145,7 +182,7 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Formulário de login feito com Reactstrap.
      */
     renderForm = () => {
         return (
@@ -190,7 +227,7 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Modal de cadastro feito com Reactstrap. 
      */
     renderModal = () => {
         return (

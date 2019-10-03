@@ -1,3 +1,12 @@
+# CRUD Completo (API + Cliente) utilizando MongoDB, ExpressJS, ReactJS e NodeJS 
+
+   Abaixo você encontra como rodar a aplicação na sua máquina;
+   
+   Na pasta 'screenshots' vocẽ pode ver como ficou o resultado final da aplicação.
+
+   Espero que curtam a aplicação e que tirem proveito do código disponível :)
+
+
 # Como rodar a aplicação
 
     1. Primeiramente instale o NodeJS em sua máquina 

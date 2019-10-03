@@ -7,6 +7,7 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Col,
 } from 'reactstrap'
 
 
+// Classe exportada de maneira padrão.
 export default class Login extends React.Component {
 
     
@@ -66,7 +67,14 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Função chamada quando o formulário de cadastro for enviado. 
+     * Fazemos a requisição para a API enviando o objeto usuário, 
+     * objeto este que é o state 'usuario' e foi preenchido pela 
+     * função 'atualizarCampo'. Caso haja um erro imprime-se esse 
+     * erro (lembrando que tanto a variável booleada 'erro' quanto a 
+     * mensagem 'mensagemErro' são variáveis que nossa API está 
+     * enviando, os nomes devem ser estes), se não fecha-se o modal 
+     * e zera-se os valores contidos no objeto/state 'usuario'. 
      */
     cadastrar = async (event) => {
         event.preventDefault()
@@ -96,7 +104,11 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Função chamada quando um usuário clica em 'excluir'. Recebe-se um determinado 
+     * id e com ele faz-se a requisição. O tratamento de erros é igual ao 'logar' e ao
+     * 'cadastrar', já caso tudo corra bem atualizados o state 'usuarios' filtrando seus 
+     * itens de forma que todos os usuários menos o usuário que contém o id que foi deletado 
+     * entram no state.
      */
     excluir = async (_id) => {
         
@@ -118,7 +130,8 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Faz com que todos os atributos do objeto/state usuário sejam 
+     * strings vazias.
      */
     zerarStateUsuario = () => {
         const usuario = {
@@ -132,7 +145,10 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Abre ou fecha o modal. Basicamente coloca-se no state modal (state esse 
+     * responsável por dizer se o modal está aberto ou fechado) o contrário do 
+     * valor atual, ou seja, se essa state for true no momento, ela vai pra false,
+     * e vice versa.
      */
     toggleModal = () => {
         this.zerarStateUsuario()
@@ -141,7 +157,13 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Essa função é chamada sempre que o usuário digitar algo nos campos 
+     * do formulário de login ou do formulário de cadastro.
+     * Basicamente colocamos no campo correto do objeto usuário o valor digitado. 
+     * Sabemos qual atributo/campo preencher com determinado valor porque tanto 
+     * esse campo quanto o valor são determinado e passados pelo 'event' que a 
+     * função que chama o atualizarCampo manda, o famoso 'onChange' contido nos
+     * inputs dos formulários.
      */
     atualizarCampo = (event) => {
         const { usuario } = this.state
@@ -151,7 +173,7 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Navbar feito com Reactstrap.
      */
     renderNavbar = () => {
         return (
@@ -193,7 +215,7 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Modal de cadastro feito com Reactstrap. 
      */
     renderModal = () => {
         return (
@@ -237,7 +259,8 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Cria a estrutura inicial da tabela que listará todos os usuário.
+     * A listagem de cada usuário é terceirizada para a função 'renderUsuario'.
      */
     renderTabela = () => {
         return (
@@ -261,7 +284,8 @@ export default class Login extends React.Component {
 
 
     /**
-     * 
+     * Renderiza cada registro de usuário contido no banco 
+     * dados na tabela de usuário.
      */
     renderUsuario = () => {
 
